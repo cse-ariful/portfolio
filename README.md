@@ -1,393 +1,70 @@
+# Getting Started with Create React App
 
-<div class="appContainer">
-<div class='header'>
-<img class="iconImage" src=images/video_converter/icon.jpg />
-<h1 style="margin-left:12px;margin-top:40px;text-align:center;cursor:pointer;">
-<a>Video Converter</a>
-</h1>
-</div>
-<div class='info'>
-<div class="keys">
-<p>👉 <b>4.7596154</b> User ratings</p>
-<p>👉 <b>10,000,000++</b> installs</p>
-</div>
-<div style="display:flex;gap:5px;justify-content:space-around;">
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-<div class="img-container">
-<img class="ss-image" src="images/video_converter/img_0.jpg"/>
-</div>
+## Available Scripts
 
+In the project directory, you can run:
 
-<div class="img-container">
-<img class="ss-image" src="images/video_converter/img_1.jpg"/>
-</div>
+### `npm start`
 
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-<div class="img-container">
-<img class="ss-image" src="images/video_converter/img_2.jpg"/>
-</div>
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
+### `npm test`
 
-<div class="img-container">
-<img class="ss-image" src="images/video_converter/img_3.jpg"/>
-</div>
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
+### `npm run build`
 
-<div class="img-container">
-<img class="ss-image" src="images/video_converter/img_4.jpg"/>
-</div>
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-<div class="img-container">
-<img class="ss-image" src="images/video_converter/img_5.jpg"/>
-</div>
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
+### `npm run eject`
 
-<div class="img-container">
-<img class="ss-image" src="images/video_converter/img_6.jpg"/>
-</div>
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-<div class="img-container">
-<img class="ss-image" src="images/video_converter/img_7.jpg"/>
-</div>
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-</div>
-<p class='short-description'>
-Batch Convert, Compress Video to MP4, MP3, 3GP, MKV, AVI, MOV, MTS, WMV, VOB,AAC
-</p>
-</div>
-</div> 
+## Learn More
 
-<div class="appContainer">
-<div class='header'>
-<img class="iconImage" src=images/shatkora/icon.jpg />
-<h1 style="margin-left:12px;margin-top:40px;text-align:center;cursor:pointer;">
-<a>Shatkora - E-Commerce</a>
-</h1>
-</div>
-<div class='info'>
-<div class="keys">
-<p>👉 <b>4.4</b> User ratings</p>
-<p>👉 <b>1,000++</b> installs</p>
-</div>
-<div style="display:flex;gap:5px;justify-content:space-around;">
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-<div class="img-container">
-<img class="ss-image" src="images/shatkora/img_0.jpg"/>
-</div>
+To learn React, check out the [React documentation](https://reactjs.org/).
 
+### Code Splitting
 
-<div class="img-container">
-<img class="ss-image" src="images/shatkora/img_1.jpg"/>
-</div>
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
+### Analyzing the Bundle Size
 
-<div class="img-container">
-<img class="ss-image" src="images/shatkora/img_2.jpg"/>
-</div>
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
+### Making a Progressive Web App
 
-<div class="img-container">
-<img class="ss-image" src="images/shatkora/img_3.jpg"/>
-</div>
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
+### Advanced Configuration
 
-<div class="img-container">
-<img class="ss-image" src="images/shatkora/img_4.jpg"/>
-</div>
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
+### Deployment
 
-</div>
-<p class='short-description'>
-Get the best offer and discounts on Grocery, Baby care, cosmetics etc shopping.
-</p>
-</div>
-</div> 
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-<div class="appContainer">
-<div class='header'>
-<img class="iconImage" src=images/video_compressor/icon.jpg />
-<h1 style="margin-left:12px;margin-top:40px;text-align:center;cursor:pointer;">
-<a>Video Compressor</a>
-</h1>
-</div>
-<div class='info'>
-<div class="keys">
-<p>👉 <b>4.841424</b> User ratings</p>
-<p>👉 <b>1,000,000++</b> installs</p>
-</div>
-<div style="display:flex;gap:5px;justify-content:space-around;">
+### `npm run build` fails to minify
 
-<div class="img-container">
-<img class="ss-image" src="images/video_compressor/img_0.jpg"/>
-</div>
-
-
-<div class="img-container">
-<img class="ss-image" src="images/video_compressor/img_1.jpg"/>
-</div>
-
-
-<div class="img-container">
-<img class="ss-image" src="images/video_compressor/img_2.jpg"/>
-</div>
-
-
-<div class="img-container">
-<img class="ss-image" src="images/video_compressor/img_3.jpg"/>
-</div>
-
-
-<div class="img-container">
-<img class="ss-image" src="images/video_compressor/img_4.jpg"/>
-</div>
-
-
-<div class="img-container">
-<img class="ss-image" src="images/video_compressor/img_5.jpg"/>
-</div>
-
-
-<div class="img-container">
-<img class="ss-image" src="images/video_compressor/img_6.jpg"/>
-</div>
-
-
-</div>
-<p class='short-description'>
-Compress Video without quality loss. Convert Video, Change resolution & Bitrate
-</p>
-</div>
-</div> 
-
-<div class="appContainer">
-<div class='header'>
-<img class="iconImage" src=images/video_merger/icon.jpg />
-<h1 style="margin-left:12px;margin-top:40px;text-align:center;cursor:pointer;">
-<a>Video Merger</a>
-</h1>
-</div>
-<div class='info'>
-<div class="keys">
-<p>👉 <b>4.64</b> User ratings</p>
-<p>👉 <b>500,000++</b> installs</p>
-</div>
-<div style="display:flex;gap:5px;justify-content:space-around;">
-
-<div class="img-container">
-<img class="ss-image" src="images/video_merger/img_0.jpg"/>
-</div>
-
-
-<div class="img-container">
-<img class="ss-image" src="images/video_merger/img_1.jpg"/>
-</div>
-
-
-<div class="img-container">
-<img class="ss-image" src="images/video_merger/img_2.jpg"/>
-</div>
-
-
-<div class="img-container">
-<img class="ss-image" src="images/video_merger/img_3.jpg"/>
-</div>
-
-
-<div class="img-container">
-<img class="ss-image" src="images/video_merger/img_4.jpg"/>
-</div>
-
-
-<div class="img-container">
-<img class="ss-image" src="images/video_merger/img_5.jpg"/>
-</div>
-
-
-<div class="img-container">
-<img class="ss-image" src="images/video_merger/img_6.jpg"/>
-</div>
-
-
-</div>
-<p class='short-description'>
-Merge videos of any format and number. Also change Scale, resolution and format.
-</p>
-</div>
-</div> 
-
-<div class="appContainer">
-<div class='header'>
-<img class="iconImage" src=images/image_compressor/icon.jpg />
-<h1 style="margin-left:12px;margin-top:40px;text-align:center;cursor:pointer;">
-<a>Imaage Compressor</a>
-</h1>
-</div>
-<div class='info'>
-<div class="keys">
-<p>👉 <b>4.327273</b> User ratings</p>
-<p>👉 <b>100,000++</b> installs</p>
-</div>
-<div style="display:flex;gap:5px;justify-content:space-around;">
-
-<div class="img-container">
-<img class="ss-image" src="images/image_compressor/img_0.jpg"/>
-</div>
-
-
-<div class="img-container">
-<img class="ss-image" src="images/image_compressor/img_1.jpg"/>
-</div>
-
-
-<div class="img-container">
-<img class="ss-image" src="images/image_compressor/img_2.jpg"/>
-</div>
-
-
-<div class="img-container">
-<img class="ss-image" src="images/image_compressor/img_3.jpg"/>
-</div>
-
-
-<div class="img-container">
-<img class="ss-image" src="images/image_compressor/img_4.jpg"/>
-</div>
-
-
-</div>
-<p class='short-description'>
-Batch Photo Compressor, compress image to Fixed Size KB, MB, Quality, Resolution
-</p>
-</div>
-</div> 
-
-<div class="appContainer">
-<div class='header'>
-<img class="iconImage" src=images/video_downloader/icon.jpg />
-<h1 style="margin-left:12px;margin-top:40px;text-align:center;cursor:pointer;">
-<a>Video Downloader</a>
-</h1>
-</div>
-<div class='info'>
-<div class="keys">
-<p>👉 <b>0</b> User ratings</p>
-<p>👉 <b>5,000++</b> installs</p>
-</div>
-<div style="display:flex;gap:5px;justify-content:space-around;">
-
-<div class="img-container">
-<img class="ss-image" src="images/video_downloader/img_0.jpg"/>
-</div>
-
-
-<div class="img-container">
-<img class="ss-image" src="images/video_downloader/img_1.jpg"/>
-</div>
-
-
-<div class="img-container">
-<img class="ss-image" src="images/video_downloader/img_2.jpg"/>
-</div>
-
-
-<div class="img-container">
-<img class="ss-image" src="images/video_downloader/img_3.jpg"/>
-</div>
-
-
-<div class="img-container">
-<img class="ss-image" src="images/video_downloader/img_4.jpg"/>
-</div>
-
-
-<div class="img-container">
-<img class="ss-image" src="images/video_downloader/img_5.jpg"/>
-</div>
-
-
-<div class="img-container">
-<img class="ss-image" src="images/video_downloader/img_6.jpg"/>
-</div>
-
-
-</div>
-<p class='short-description'>
-Download unlimited videos directly from the internet to your device 100% free.
-</p>
-</div>
-</div> 
-
-<style>
-.appContainer {
-padding: 12px;
-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-transition: 0.3s;
-margin-left: auto;
-margin-right: auto;
-border-radius: 8px;
-max-width: 1200px;
-margin-top: 16px;
-}
-
-.header {
-display: flex;
-width: 100%;
-padding: 0;
-text-align: center;
-margin: 12px
-}
-
-.iconImage {
-border-radius: 5px;
-width: 100px;
-height: 100px;
-}
-
-.ss-container {
-display: flex;
-gap: 5px;
-margin: 0 20px;
-width: 100%;
-flex-direction: row;
-justify-content: space-around;
-}
-
-.img-container {
-flex: 1;
-width: 100px;
-border-radius: 5px;
-transition: all 0.5s ease-in-out;
-}
-
-.ss-image {
-width: 100%;
-border-radius: 5px;
-overflow: hidden;
-
-}
-
-.img-container:hover {
-transform: scale(2.0);
-z-index: 4;
-}
-
-.keys {
-margin: 12px 0;
-display: flex;
-flex-direction: column;
-gap: 4px;
-}
-
-.keys p {
-font-size: 16px;
-}
-
-.short-description {
-opacity: 0.6;
-font-size: 16px;
-margin: 12px 0;
-}
-</style>
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
