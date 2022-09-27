@@ -388,10 +388,17 @@ section {
 /*Timeline*/
 .timeline {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   grid-gap: 2rem;
   padding-bottom: 3rem;
 }
+
+/* .timeline-item {
+  border-radius: 6px;
+  box-shadow: 0px 0 4px 4px var(--color-grey-4);
+  border-bottom: 1px solid var(--color-grey-);
+  padding: 6px;
+} */
 
 .timeline .timeline-item {
   position: relative;
@@ -422,13 +429,11 @@ section {
   border-radius: 15px;
   display: inline-block;
   font-size: 0.8rem;
-  text-transform: uppercase;
   font-weight: 500;
 }
 
 .timeline .timeline-item h5 {
   padding: 1rem 0;
-  text-transform: uppercase;
   font-size: 1.3rem;
   font-weight: 600;
 }
@@ -437,6 +442,14 @@ section {
   color: var(--color-grey-2);
   font-weight: 500;
   font-size: 1.2rem;
+}
+
+
+
+.job-description ul li {
+  list-style-type: square;
+  color: var(--color-grey-2);
+
 }
 
 .timeline .timeline-item p {
@@ -1051,6 +1064,10 @@ section {
   }
 }
 
+body::-webkit-scrollbar {
+  width: 8px;
+}
+
 @media screen and (max-width: 700px) {
   .container {
     padding: 7rem 3rem;
@@ -1063,6 +1080,7 @@ section {
   .about-container .right-about {
     grid-template-columns: repeat(1, 1fr);
   }
+
 
   .timeline {
     grid-template-columns: repeat(1, 1fr);
