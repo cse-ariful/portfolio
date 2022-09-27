@@ -1064,10 +1064,6 @@ section {
   }
 }
 
-body::-webkit-scrollbar {
-  width: 8px;
-}
-
 @media screen and (max-width: 700px) {
   .container {
     padding: 7rem 3rem;
