@@ -259,14 +259,15 @@ section {
 /*About*/
 .about-container {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   padding-top: 3.5rem;
   padding-bottom: 5rem;
 }
 
 .about-container .right-about {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: 32px;
   grid-gap: 2rem;
 }
 
@@ -310,13 +311,14 @@ section {
 }
 
 .about-container .left-about {
-  padding-right: 5rem;
+  padding-right: 0px;
 }
 
 .about-container .left-about p {
-  line-height: 2rem;
   padding: 1rem;
-  color: var(--color-grey-1);
+  text-align: justify;
+  word-break: normal;
+  color: var(--color-grey-2);
 }
 
 .about-container .left-about h4 {
@@ -1104,7 +1106,7 @@ section {
   }
 
   .about-container .right-about {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 
 

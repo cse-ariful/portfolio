@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="sliderContainer">
+        <div id="slider">
+            <img src="../img/blog1.jpg" />
+            <img src="../img/blog2.jpg" />
+            <img src="../img/blog3.jpg" />
+            <img src="../img/my_image.jpg" />
+        </div>
+    </div>
+
+    <style>
+        .sliderContainer {
+            max-width: 560px;
+            height: 400px;
+            position: relative;
+            margin: auto;
+            display: flex;
+            background-color: red;
+        }
+
+        #slider {
+            width: 100%;
+            overflow: hidden;
+            aspect-ratio: 1/1;
+        }
+
+        #slider figure {
+            position: relative;
+            width: 500%;
+            margin: 0;
+            left: 0;
+            animation: 20s slider infinite;
+        }
+
+        #slider figure img {
+            width: 100%;
+        }
+    </style>
+</body>
+
+</html>
