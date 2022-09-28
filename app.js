@@ -10,7 +10,7 @@
         document.body.classList.toggle("light-mode");
     })
     document.querySelector("#messageBtn").addEventListener("click", () => {
-        let name = document.querySelector("#nameField").value;
+        // let name = document.querySelector("#nameField").value;
         let message = document.querySelector("#messageField").value;
         window.location.href = "mailto:user@example.com?subject=I want to talk&body=" + message;
     })
