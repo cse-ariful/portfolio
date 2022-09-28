@@ -908,7 +908,7 @@ section {
   }
 
   .container {
-    padding: 2rem 2.5rem !important;
+    padding: 0px;
   }
 
   .about-stats .progress-bars {
