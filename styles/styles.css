@@ -253,7 +253,6 @@ section {
 
 .header-content .right-header p {
   margin: 1.5rem 0;
-  line-height: 2rem;
 }
 
 /*About*/
@@ -982,7 +981,7 @@ section {
 
 @media screen and (max-width: 1432px) {
   .container {
-    padding: 7rem 11rem;
+    padding: 3rem 11rem;
   }
 
   .contact-content-con {
@@ -1061,7 +1060,7 @@ section {
 
 @media screen and (max-width: 970px) {
   .container {
-    padding: 7rem 6rem;
+    padding: 3rem 6rem;
   }
 
   .about-container .left-about {
@@ -1098,7 +1097,7 @@ section {
 
 @media screen and (max-width: 700px) {
   .container {
-    padding: 7rem 3rem;
+    padding: 3rem 2rem;
   }
 
   .about-stats .progress-bars {
