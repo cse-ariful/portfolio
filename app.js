@@ -14,4 +14,6 @@
         let message = document.querySelector("#messageField").value;
         window.location.href = "mailto:user@example.com?subject=I want to talk&body=" + message;
     })
+    document.getElementById('portfolio').style.display = 'none';
+    document.getElementById('blogs').style.display = 'none';
 })();

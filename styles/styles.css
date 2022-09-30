@@ -201,7 +201,7 @@ section {
 }
 
 .header-content .left-header .image img {
-  animation: grayScaleFilter 8s infinite;
+  /* animation: grayScaleFilter 8s infinite; */
   animation-iteration-count: infinite;
 }
 
