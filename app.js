@@ -12,7 +12,7 @@
     document.querySelector("#messageBtn").addEventListener("click", () => {
         // let name = document.querySelector("#nameField").value;
         let message = document.querySelector("#messageField").value;
-        window.location.href = "mailto:user@example.com?subject=I want to talk&body=" + message;
+        window.location.href = "mailto:cse.ariful@gmail.com?subject=PortFolio Contact&body=" + message;
     })
     document.getElementById('portfolio').style.display = 'none';
     document.getElementById('blogs').style.display = 'none';
