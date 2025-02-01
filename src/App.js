@@ -15,6 +15,8 @@ import ExperienceAlt from './components/ExperienceAlt';
 import ExperienceAlt2 from './components/ExperienceAlt2';
 import SkillsAlt from './components/SkillsAlt';
 import ContactAlt from './components/ContactAlt';
+import EducationAlt from './components/EducationAlt';
+import CertificationsAlt from './components/CertificationsAlt';
 
 const AppContainer = styled.div`
   min-height: 100vh;
@@ -33,6 +35,8 @@ function App() {
          
         <HeroAlt />
         <ExperienceAlt2 />
+        <EducationAlt />
+        <CertificationsAlt />
         <SkillsAlt />
         <SideProjects />
         <ProjectsAlt2 />
