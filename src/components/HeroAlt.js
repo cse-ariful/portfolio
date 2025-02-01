@@ -1,5 +1,6 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
+import QuoteOverlay from './QuoteOverlay';
 
 const gradientMove = keyframes`
   0% {
@@ -81,6 +82,11 @@ const Content = styled.div`
 
 const TextContent = styled.div`
   animation: ${fadeInUp} 1s ease-out;
+
+  @media (max-width: 1024px) {
+    margin: 0 auto;
+    max-width: 600px;
+  }
 
   h1 {
     font-size: clamp(2.5rem, 5vw, 4rem);
@@ -184,28 +190,27 @@ const SocialLinks = styled.div`
 
 const ImageSection = styled.div`
   position: relative;
-  animation: ${fadeInUp} 1s ease-out 0.3s backwards;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-  &::before {
-    content: '';
-    position: absolute;
-    top: -20px;
-    right: -20px;
-    bottom: -20px;
-    left: -20px;
-    background: radial-gradient(circle at center, rgba(124, 58, 237, 0.2) 0%, transparent 70%);
-    border-radius: 30px;
-    filter: blur(20px);
+  &:hover ${QuoteOverlay} {
+    opacity: 1;
+  }
+
+  @media (max-width: 1024px) {
+    display: none;
   }
 `;
 
 const ProfileImage = styled.img`
-  width: 100%;
-  max-width: 400px;
-  border-radius: 20px;
-  position: relative;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid rgba(165, 180, 252, 0.3);
+  box-shadow: 0 0 30px rgba(124, 58, 237, 0.2);
 `;
 
 const HeroAlt = () => {
@@ -266,6 +271,7 @@ const HeroAlt = () => {
             src={`${process.env.PUBLIC_URL}/profile_image.jpeg`}
             alt="MA-ARIFUL JANNAT"
           />
+          <QuoteOverlay />
         </ImageSection>
       </Content>
     </HeroSection>
