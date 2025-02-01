@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { slideIn, slideInRight } from '../styles/animations';
 
 const ProjectsSection = styled.section`
   padding: 4rem 2rem;
@@ -83,13 +85,20 @@ const ProjectItem = styled.div`
 
   @media (max-width: 768px) {
     width: 100%;
-    padding: 20px;
+    padding: 20px 0;
     left: 0;
 
     &::before, &::after {
       display: none;
     }
   }
+`;
+
+const AnimatedProjectItem = styled(ProjectItem)`
+  opacity: 0;
+  animation: ${props => props.position === 'left' ? slideIn : slideInRight} 0.8s ease-out forwards;
+  animation-delay: ${props => props.index * 0.3}s;
+  animation-play-state: ${props => props.isVisible ? 'running' : 'paused'};
 `;
 
 const ProjectContent = styled.div`
@@ -111,6 +120,12 @@ const ProjectContent = styled.div`
     margin-bottom: 1.5rem;
     border-left: 2px solid rgba(165, 180, 252, 0.3);
     border-radius: 0;
+    margin-left: 0;
+    margin-right: 0;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
   }
 `;
 
@@ -119,6 +134,10 @@ const AppIcon = styled.img`
   height: 80px;
   border-radius: 16px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+  @media (max-width: 768px) {
+    margin-bottom: 0.5rem;
+  }
 `;
 
 const PlatformBadge = styled.span`
@@ -131,6 +150,10 @@ const PlatformBadge = styled.span`
   margin-right: 0.8rem;
   background: rgba(255, 255, 255, 0.1);
   color: #a5b4fc;
+
+  @media (max-width: 768px) {
+    margin-right: 0;
+  }
 
   i {
     font-size: 1rem;
@@ -148,6 +171,13 @@ const ProjectDetails = styled.div`
 
   .platforms {
     margin-bottom: 1rem;
+    
+    @media (max-width: 768px) {
+      justify-content: center;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
   }
 
   .downloads {
@@ -159,6 +189,11 @@ const ProjectDetails = styled.div`
   ul {
     margin-top: 1rem;
     padding-left: 1.5rem;
+    list-style: none;
+
+    @media (max-width: 768px) {
+      text-align: left;
+    }
 
     li {
       margin-bottom: 0.8rem;
@@ -177,6 +212,8 @@ const ProjectDetails = styled.div`
 `;
 
 const Projects = () => {
+  const [timelineRef, timelineVisible] = useScrollAnimation();
+
   const projects = [
     {
       title: "PBN Grow 2",
@@ -274,11 +311,13 @@ const Projects = () => {
   return (
     <ProjectsSection id="projects">
       <Title>Project Showcase</Title>
-      <Timeline>
+      <Timeline ref={timelineRef}>
         {projects.map((project, index) => (
-          <ProjectItem 
-            key={index} 
+          <AnimatedProjectItem 
+            key={index}
+            index={index}
             position={index % 2 === 0 ? 'left' : 'right'}
+            isVisible={timelineVisible}
           >
             <ProjectContent>
               <AppIcon src={`project_icons/${project.icon}`} alt={`${project.title} icon`} />
@@ -300,7 +339,7 @@ const Projects = () => {
                 </ul>
               </ProjectDetails>
             </ProjectContent>
-          </ProjectItem>
+          </AnimatedProjectItem>
         ))}
       </Timeline>
     </ProjectsSection>

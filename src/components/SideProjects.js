@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { slideIn, slideInRight } from '../styles/animations';
 
 const SideProjectsSection = styled.section`
   padding: 4rem 2rem;
@@ -130,11 +132,24 @@ const AppLogo = styled.img`
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 `;
 
+const AnimatedProjectInfo = styled(ProjectInfo)`
+  opacity: 0;
+  animation: ${slideIn} 0.8s ease-out forwards;
+  animation-play-state: ${props => props.isVisible ? 'running' : 'paused'};
+`;
+
+const AnimatedCarouselContainer = styled(CarouselContainer)`
+  opacity: 0;
+  animation: ${slideInRight} 0.8s ease-out forwards;
+  animation-play-state: ${props => props.isVisible ? 'running' : 'paused'};
+`;
+
 const SideProjects = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const screenshots = Array.from({ length: 10 }, (_, i) => 
     `/site_audit_pro/site_audit_ss_${i + 1}.png`
   );
+  const [containerRef, containerVisible] = useScrollAnimation();
 
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev + 1) % screenshots.length);
@@ -148,8 +163,8 @@ const SideProjects = () => {
   return (
     <SideProjectsSection id="side-projects">
       <Title>Side Projects</Title>
-      <ProjectContainer>
-        <ProjectInfo>
+      <ProjectContainer ref={containerRef}>
+        <AnimatedProjectInfo isVisible={containerVisible}>
           <AppLogo 
             src="/site_audit_pro_logo.webp" 
             alt="Audit Master Pro Logo"
@@ -169,8 +184,8 @@ const SideProjects = () => {
               alt="Download on the App Store"
             />
           </AppStoreButton>
-        </ProjectInfo>
-        <CarouselContainer>
+        </AnimatedProjectInfo>
+        <AnimatedCarouselContainer isVisible={containerVisible}>
           <CarouselTrack>
             {screenshots.map((src, index) => {
               let position = 'hidden';
@@ -190,7 +205,7 @@ const SideProjects = () => {
               );
             })}
           </CarouselTrack>
-        </CarouselContainer>
+        </AnimatedCarouselContainer>
       </ProjectContainer>
     </SideProjectsSection>
   );

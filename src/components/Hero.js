@@ -80,6 +80,7 @@ const TextContent = styled.div`
     line-height: 1.8;
     margin-bottom: 2rem;
     max-width: 800px;
+    opacity: 0.6;
   }
 `;
 

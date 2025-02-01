@@ -43,6 +43,13 @@ const Timeline = styled.div`
     transform: translateX(-50%);
   }
 
+  @media (max-width: 1100px) {
+    &::after {
+      left: 0;
+      transform: none;
+    }
+  }
+
   @media (max-width: 768px) {
     &::after {
       display: none;
@@ -81,10 +88,25 @@ const ExperienceItem = styled.div`
     left: ${props => props.position === 'left' ? 'auto' : '0'};
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 1100px) {
     width: 100%;
-    padding: 20px;
     left: 0;
+    padding-left: 50px;
+    padding-right: 20px;
+
+    &::before {
+      left: -8px;
+      right: auto;
+    }
+
+    &::after {
+      left: 0;
+      right: auto;
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 20px 0;
 
     &::before, &::after {
       display: none;
@@ -103,11 +125,17 @@ const ExperienceContent = styled.div`
     transform: translateY(-5px);
   }
 
+  @media (max-width: 1100px) {
+    margin-bottom: 2rem;
+  }
+
   @media (max-width: 768px) {
     padding: 1.5rem;
     margin-bottom: 1.5rem;
     border-left: 2px solid rgba(165, 180, 252, 0.3);
     border-radius: 0;
+    margin-left: 0;
+    margin-right: 0;
   }
 
   h3 {
@@ -131,6 +159,7 @@ const ExperienceContent = styled.div`
   ul {
     margin-top: 1rem;
     padding-left: 1.5rem;
+    list-style: none;
 
     li {
       margin-bottom: 0.8rem;

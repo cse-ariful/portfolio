@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { slideUp, scaleUp } from '../styles/animations';
 
 const SkillsSection = styled.section`
   padding: 4rem 2rem;
@@ -130,7 +132,24 @@ const TechIcon = styled.div`
   }
 `;
 
+const AnimatedTechIcon = styled(TechIcon)`
+  opacity: 0;
+  animation: ${scaleUp} 0.6s ease-out forwards;
+  animation-delay: ${props => props.index * 0.1}s;
+  animation-play-state: ${props => props.isVisible ? 'running' : 'paused'};
+`;
+
+const AnimatedSkillCategory = styled(SkillCategory)`
+  opacity: 0;
+  animation: ${slideUp} 0.6s ease-out forwards;
+  animation-delay: ${props => props.index * 0.2}s;
+  animation-play-state: ${props => props.isVisible ? 'running' : 'paused'};
+`;
+
 const Skills = () => {
+  const [techGridRef, techGridVisible] = useScrollAnimation();
+  // const [skillsGridRef, skillsGridVisible] = useScrollAnimation(); // Commented out as not needed
+
   const techIcons = [
     { icon: 'fab fa-swift', name: 'Swift' },
     { icon: 'fab fa-android', name: 'Android' },
@@ -145,59 +164,39 @@ const Skills = () => {
     { icon: 'fab fa-asana', name: 'Asana' },
   ];
 
-  const skillCategories = [
-    {
-      category: "Mobile Development",
-      skills: [
-        "iOS: Swift, SwiftUI, UIKit, Swift Concurrency",
-        "Android: Kotlin, Java, Jetpack Compose",
-        "Cross-Platform: Flutter, Complex animations"
-      ]
-    },
-    {
-      category: "Architecture & Patterns",
-      skills: [
-        "Clean Architecture",
-        "SOLID principles",
-        "MVVM, MVI, MVC, MVP",
-        "Dependency Injection"
-      ]
-    },
-    {
-      category: "Tools & Technologies",
-      skills: [
-        "Git Version Control",
-        "CI/CD",
-        "App Publishing",
-        "Unit Testing",
-        "UI Testing"
-      ]
-    }
-  ];
-
   return (
     <SkillsSection id="skills">
       <Title>Expertise</Title>
-      <TechIconsGrid>
+      <TechIconsGrid ref={techGridRef}>
         {techIcons.map((tech, index) => (
-          <TechIcon key={index}>
+          <AnimatedTechIcon 
+            key={index} 
+            index={index}
+            isVisible={techGridVisible}
+          >
             <i className={tech.icon}></i>
             <span>{tech.name}</span>
-          </TechIcon>
+          </AnimatedTechIcon>
         ))}
       </TechIconsGrid>
-      <SkillsGrid>
+      {/* Temporarily hiding skill cards
+      <SkillsGrid ref={skillsGridRef}>
         {skillCategories.map((category, index) => (
-          <SkillCategory key={index}>
+          <AnimatedSkillCategory 
+            key={index}
+            index={index}
+            isVisible={skillsGridVisible}
+          >
             <h3>{category.category}</h3>
             <ul>
               {category.skills.map((skill, i) => (
                 <li key={i}>{skill}</li>
               ))}
             </ul>
-          </SkillCategory>
+          </AnimatedSkillCategory>
         ))}
       </SkillsGrid>
+      */}
     </SkillsSection>
   );
 };
