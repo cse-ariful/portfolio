@@ -6,6 +6,7 @@ import Hero from './components/Hero';
 import Experience from './components/Experience';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
+import ProjectsAlt from './components/ProjectsAlt';
 import Contact from './components/Contact';
 import SideProjects from './components/SideProjects';
 import HeroAlt from './components/HeroAlt';
@@ -30,7 +31,7 @@ function App() {
         <Skills />
         <SideProjects />
         <ExperienceAlt />
-        <Projects />
+        <ProjectsAlt />
         <Contact />
       </Main>
     </AppContainer>
