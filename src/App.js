@@ -11,6 +11,8 @@ import Contact from './components/Contact';
 import SideProjects from './components/SideProjects';
 import HeroAlt from './components/HeroAlt';
 import ExperienceAlt from './components/ExperienceAlt';
+import SkillsAlt from './components/SkillsAlt';
+import ContactAlt from './components/ContactAlt';
 
 const AppContainer = styled.div`
   min-height: 100vh;
@@ -26,13 +28,13 @@ function App() {
       <GlobalStyles />
       <Navbar />
       <Main>
-        {/* <Hero /> */}
+         
         <HeroAlt />
-        <Skills />
-        <SideProjects />
+        <SkillsAlt />
         <ExperienceAlt />
+        <SideProjects />
         <ProjectsAlt />
-        <Contact />
+        <ContactAlt />
       </Main>
     </AppContainer>
   );
