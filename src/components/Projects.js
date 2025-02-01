@@ -320,7 +320,7 @@ const Projects = () => {
             isVisible={timelineVisible}
           >
             <ProjectContent>
-              <AppIcon src={`project_icons/${project.icon}`} alt={`${project.title} icon`} />
+              <AppIcon src={`${process.env.PUBLIC_URL}/project_icons/${project.icon}`} alt={`${project.title} icon`} />
               <ProjectDetails>
                 <h3>{project.title}</h3>
                 <div className="platforms">

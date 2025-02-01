@@ -120,6 +120,7 @@ const ExperienceContent = styled.div`
   border-radius: 10px;
   transition: transform 0.3s ease;
   border: 1px solid rgba(255, 255, 255, 0.15);
+  text-align: left;
 
   &:hover {
     transform: translateY(-5px);
@@ -148,6 +149,16 @@ const ExperienceContent = styled.div`
     color: #a5b4fc;
     margin-bottom: 1rem;
     font-size: 1.2rem;
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: opacity 0.3s ease;
+      
+      &:hover {
+        opacity: 0.8;
+      }
+    }
   }
 
   .period, .location {
@@ -182,8 +193,9 @@ const Experience = () => {
     {
       title: "Senior Software Engineer",
       company: "Enosis Solutions",
-      period: "Jun 2023 – present",
-      location: "Hybrid, Dhaka, Bangladesh",
+      companyUrl: "https://www.enosisbd.com/",
+      period: "Aug 2022 – Present",
+      location: "Sylhet, Bangladesh",
       achievements: [
         "Integrated VoIP/SIP technology in an iOS app with 99% call reliability",
         "Analyzed project requirements and improved sprint efficiency by 25%",
@@ -193,20 +205,9 @@ const Experience = () => {
       ]
     },
     {
-      title: "Mobile Application Developer",
-      company: "Layal",
-      period: "Oct 2022 – May 2023",
-      location: "Remote, Netherlands",
-      achievements: [
-        "Led planning and development using Flutter",
-        "Reduced MVP release time by 20%",
-        "Integrated in-app purchases improving purchase rate by 20%",
-        "Managed app publishing across multiple platforms"
-      ]
-    },
-    {
       title: "Software Engineer",
       company: "Inverse.AI",
+      companyUrl: "https://inverseai.com/",
       period: "Aug 2021 – Aug 2022",
       location: "Sylhet, Bangladesh",
       achievements: [
@@ -217,6 +218,19 @@ const Experience = () => {
         "Optimized software architecture and modularized features, improving app stability by 20% and enhancing maintainability.",
         "Reduced crash rates to 0.01% through robust error handling and testing.",
         "Modernized legacy codebases, resulting in 25% faster development cycles."
+      ]
+    },
+    {
+      title: "Software Engineer",
+      company: "Layal Technology",
+      companyUrl: "https://www.withlayal.com/",
+      period: "Jan 2019 – Jul 2021",
+      location: "Sylhet, Bangladesh",
+      achievements: [
+        "Led planning and development using Flutter",
+        "Reduced MVP release time by 20%",
+        "Integrated in-app purchases improving purchase rate by 20%",
+        "Managed app publishing across multiple platforms"
       ]
     }
   ];
@@ -232,7 +246,15 @@ const Experience = () => {
           >
             <ExperienceContent>
               <h3>{exp.title}</h3>
-              <h4>{exp.company}</h4>
+              <h4>
+                <a 
+                  href={exp.companyUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {exp.company}
+                </a>
+              </h4>
               <p className="period">{exp.period}</p>
               <p className="location">{exp.location}</p>
               <ul>

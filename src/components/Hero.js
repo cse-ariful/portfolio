@@ -166,7 +166,7 @@ const Hero = () => {
     <HeroSection id="home">
       <HeroContent>
         <ImageContainer>
-          <img src="/profile_image.jpeg" alt="MA-ARIFUL JANNAT" />
+          <img src={`${process.env.PUBLIC_URL}/profile_image.jpeg`} alt="MA-ARIFUL JANNAT" />
         </ImageContainer>
         <TextContent>
           <h1>Ariful Jannat Arif</h1>

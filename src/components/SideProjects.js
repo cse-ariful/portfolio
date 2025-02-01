@@ -147,7 +147,7 @@ const AnimatedCarouselContainer = styled(CarouselContainer)`
 const SideProjects = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const screenshots = Array.from({ length: 10 }, (_, i) => 
-    `/site_audit_pro/site_audit_ss_${i + 1}.png`
+    `${process.env.PUBLIC_URL}/site_audit_pro/site_audit_ss_${i + 1}.png`
   );
   const [containerRef, containerVisible] = useScrollAnimation();
 
@@ -166,7 +166,7 @@ const SideProjects = () => {
       <ProjectContainer ref={containerRef}>
         <AnimatedProjectInfo isVisible={containerVisible}>
           <AppLogo 
-            src="/site_audit_pro_logo.webp" 
+            src={`${process.env.PUBLIC_URL}/site_audit_pro_logo.webp`} 
             alt="Audit Master Pro Logo"
           />
           <h3>Audit Master</h3>
