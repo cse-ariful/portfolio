@@ -238,13 +238,27 @@ const HeroAlt = () => {
             </Button>
           </ButtonGroup>
           <SocialLinks>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+            <a 
+              href="https://www.linkedin.com/in/cse-ariful/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+            >
               <i className="fab fa-linkedin"></i>
             </a>
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+            <a 
+              href="https://github.com/cse-ariful/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+            >
               <i className="fab fa-github"></i>
             </a>
-            
+            <a 
+              href="https://facebook.com/arifuljannatarif" 
+              target="_blank" 
+              rel="noopener noreferrer"
+            >
+              <i className="fab fa-facebook"></i>
+            </a>
           </SocialLinks>
         </TextContent>
         <ImageSection>

@@ -146,7 +146,7 @@ const InfoValue = styled.span`
 
 const SocialLinks = styled.div`
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
   margin-top: 2rem;
 `;
@@ -202,13 +202,29 @@ const ContactAlt = () => {
               </InfoItem>
             </ContactInfo>
             <SocialLinks>
-              <SocialLink href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+              <SocialLink 
+                href="https://www.linkedin.com/in/cse-ariful/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
                 <i className="fab fa-linkedin"></i>
                 LinkedIn
               </SocialLink>
-              <SocialLink href="https://github.com" target="_blank" rel="noopener noreferrer">
+              <SocialLink 
+                href="https://github.com/cse-ariful/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
                 <i className="fab fa-github"></i>
                 GitHub
+              </SocialLink>
+              <SocialLink 
+                href="https://facebook.com/arifuljannatarif" 
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
+                <i className="fab fa-facebook"></i>
+                Facebook
               </SocialLink>
             </SocialLinks>
           </ContactCard>
