@@ -7,68 +7,57 @@ const Nav = styled.nav`
   top: 0;
   left: 0;
   right: 0;
+  padding: 1rem 2rem;
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  transition: all 0.3s ease;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+`;
+
+const NavContainer = styled.div`
+  max-width: 1400px;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem 2rem;
-  z-index: 1000;
-  transition: all 0.3s ease;
-  
-  ${props => props.scrolled ? `
-    background: rgba(17, 24, 39, 0.8);
-    backdrop-filter: blur(10px);
-    padding: 1rem 2rem;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  ` : `
-    background: transparent;
-  `}
 `;
 
-const Brand = styled.div`
-  h1 {
-    font-size: 1.5rem;
-    margin: 0;
-    background: linear-gradient(to right, #fff, #a5b4fc);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
+const Logo = styled.a`
+  color: #f3f4f6;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+  background: linear-gradient(to right, #fff, #a5b4fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 `;
 
-const NavLinks = styled.div`
+const MenuItems = styled.div`
   display: flex;
   gap: 2rem;
+  align-items: center;
 
   @media (max-width: 768px) {
     display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    flex-direction: column;
-    gap: 0;
-    background: rgba(26, 26, 26, 0.95);
-    backdrop-filter: blur(10px);
-    padding: 1rem;
-    
-    ${props => props.isOpen && `
-      display: flex;
-    `}
   }
 `;
 
-const NavLink = styled.a`
-  color: #a5b4fc;
+const MenuItem = styled.a`
+  color: #e5e7eb;
   text-decoration: none;
-  font-weight: 500;
+  font-size: 0.95rem;
   transition: all 0.3s ease;
-  padding: 0.5rem 0;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
   position: relative;
 
   &::after {
     content: '';
     position: absolute;
     bottom: 0;
-    left: 0;
+    left: 50%;
+    transform: translateX(-50%);
     width: 0;
     height: 2px;
     background: linear-gradient(to right, #4F46E5, #7C3AED);
@@ -76,99 +65,108 @@ const NavLink = styled.a`
   }
 
   &:hover {
-    color: white;
-    
-    &::after {
-      width: 100%;
-    }
-  }
+    color: #fff;
+    background: rgba(255, 255, 255, 0.05);
 
-  @media (max-width: 768px) {
-    padding: 1rem;
-    text-align: center;
-    
-    &:hover {
-      background: rgba(255, 255, 255, 0.1);
+    &::after {
+      width: 80%;
     }
   }
 `;
 
-const Hamburger = styled.div`
+const MobileMenuButton = styled.button`
   display: none;
+  background: none;
+  border: none;
+  color: #e5e7eb;
+  font-size: 1.5rem;
   cursor: pointer;
-  
+  padding: 0.5rem;
+
   @media (max-width: 768px) {
     display: block;
-    width: 30px;
-    height: 20px;
-    position: relative;
-    
-    span {
-      position: absolute;
-      width: 100%;
-      height: 2px;
-      background: #a5b4fc;
-      transition: all 0.3s ease;
-      
-      &:first-child {
-        top: 0;
-        ${props => props.isOpen && `
-          transform: rotate(45deg);
-          top: 9px;
-        `}
-      }
-      
-      &:nth-child(2) {
-        top: 9px;
-        ${props => props.isOpen && `
-          opacity: 0;
-        `}
-      }
-      
-      &:last-child {
-        top: 18px;
-        ${props => props.isOpen && `
-          transform: rotate(-45deg);
-          top: 9px;
-        `}
-      }
-    }
+  }
+`;
+
+const MobileMenu = styled.div`
+  display: none;
+  position: fixed;
+  top: 70px;
+  left: 0;
+  right: 0;
+  background: rgba(15, 23, 42, 0.95);
+  padding: 1rem;
+  backdrop-filter: blur(10px);
+
+  @media (max-width: 768px) {
+    display: ${props => props.isOpen ? 'block' : 'none'};
+  }
+`;
+
+const MobileMenuItem = styled(MenuItem)`
+  display: block;
+  padding: 1rem;
+  text-align: center;
+  border-radius: 0;
+  
+  &:not(:last-child) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   }
 `;
 
 const Navbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [hasScrolled, setHasScrolled] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setHasScrolled(window.scrollY > 50);
+      setScrolled(window.scrollY > 50);
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const menuItems = [
+    { href: '#home', label: 'Home' },
+    { href: '#experience', label: 'Experience' },
+    { href: '#education', label: 'Education' },
+    { href: '#certifications', label: 'Certifications' },
+    { href: '#skills', label: 'Skills' },
+    { href: '#side-projects', label: 'Side Projects' },
+    { href: '#projects', label: 'Projects' },
+    { href: '#contact', label: 'Contact' }
+  ];
+
   return (
-    <Nav scrolled={hasScrolled}>
-      <Brand>
-        <h1></h1>
-      </Brand>
-      <NavLinks isOpen={isMenuOpen}>
-        <NavLink href="#home" onClick={() => setIsMenuOpen(false)}>Home</NavLink>
-        <NavLink href="#experience" onClick={() => setIsMenuOpen(false)}>Experience</NavLink>
-        <NavLink href="#skills" onClick={() => setIsMenuOpen(false)}>Skills</NavLink>
-        <NavLink href="#projects" onClick={() => setIsMenuOpen(false)}>Projects</NavLink>
-        <NavLink href="#contact" onClick={() => setIsMenuOpen(false)}>Contact</NavLink>
-      </NavLinks>
-      <Hamburger 
-        isOpen={isMenuOpen} 
-        onClick={() => setIsMenuOpen(!isMenuOpen)}
-      >
-        <span></span>
-        <span></span>
-        <span></span>
-      </Hamburger>
+    <Nav style={{ 
+      background: scrolled ? 'rgba(15, 23, 42, 0.9)' : 'rgba(15, 23, 42, 0.8)',
+      boxShadow: scrolled ? '0 4px 20px rgba(0, 0, 0, 0.1)' : 'none'
+    }}>
+      <NavContainer>
+        <Logo href="#home">Ariful</Logo>
+        <MenuItems>
+          {menuItems.map((item, index) => (
+            <MenuItem key={index} href={item.href}>
+              {item.label}
+            </MenuItem>
+          ))}
+        </MenuItems>
+        <MobileMenuButton onClick={() => setIsOpen(!isOpen)}>
+          <i className={`fas fa-${isOpen ? 'times' : 'bars'}`}></i>
+        </MobileMenuButton>
+      </NavContainer>
+      <MobileMenu isOpen={isOpen}>
+        {menuItems.map((item, index) => (
+          <MobileMenuItem 
+            key={index} 
+            href={item.href}
+            onClick={() => setIsOpen(false)}
+          >
+            {item.label}
+          </MobileMenuItem>
+        ))}
+      </MobileMenu>
     </Nav>
   );
 };
