@@ -8,6 +8,7 @@ import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 import SideProjects from './components/SideProjects';
+import HeroAlt from './components/HeroAlt';
 
 const AppContainer = styled.div`
   min-height: 100vh;
@@ -23,7 +24,8 @@ function App() {
       <GlobalStyles />
       <Navbar />
       <Main>
-        <Hero />
+        {/* <Hero /> */}
+        <HeroAlt />
         <Skills />
         <SideProjects />
         <Experience />
