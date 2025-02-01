@@ -7,10 +7,12 @@ import Experience from './components/Experience';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
 import ProjectsAlt from './components/ProjectsAlt';
+import ProjectsAlt2 from './components/ProjectsAlt2';
 import Contact from './components/Contact';
 import SideProjects from './components/SideProjects';
 import HeroAlt from './components/HeroAlt';
 import ExperienceAlt from './components/ExperienceAlt';
+import ExperienceAlt2 from './components/ExperienceAlt2';
 import SkillsAlt from './components/SkillsAlt';
 import ContactAlt from './components/ContactAlt';
 
@@ -30,10 +32,10 @@ function App() {
       <Main>
          
         <HeroAlt />
+        <ExperienceAlt2 />
         <SkillsAlt />
-        <ExperienceAlt />
         <SideProjects />
-        <ProjectsAlt />
+        <ProjectsAlt2 />
         <ContactAlt />
       </Main>
     </AppContainer>
