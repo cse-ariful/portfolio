@@ -9,6 +9,7 @@ import Projects from './components/Projects';
 import Contact from './components/Contact';
 import SideProjects from './components/SideProjects';
 import HeroAlt from './components/HeroAlt';
+import ExperienceAlt from './components/ExperienceAlt';
 
 const AppContainer = styled.div`
   min-height: 100vh;
@@ -28,7 +29,7 @@ function App() {
         <HeroAlt />
         <Skills />
         <SideProjects />
-        <Experience />
+        <ExperienceAlt />
         <Projects />
         <Contact />
       </Main>
