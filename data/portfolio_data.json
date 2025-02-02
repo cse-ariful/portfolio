@@ -1,0 +1,133 @@
+{
+  "sectionTitles": {
+    "hero": { "title": "Home", "enabled": true },
+    "experience": { "title": "Job Experiences", "enabled": true },
+    "education": { "title": "Education", "enabled": true },
+    "certifications": { "title": "Certifications", "enabled": true },
+    "skills": { "title": "Technical Expertise", "enabled": true },
+    "sideProjects": { "title": "Side Projects", "enabled": true },
+    "projects": { "title": "Featured Projects", "enabled": true },
+    "contact": { "title": "Get In Touch", "enabled": true }
+  },
+  "hero": {
+    "name": "Ariful Jannat Arif",
+    "title": "Software Engineer (iOS, Android)",
+    "description": "Software Engineer with 5+ years of specialized expertise in mobile application development across native iOS, Android, and Flutter platforms. Strong technical leadership experience in architecting scalable solutions, mentoring teams, and driving stakeholder communications.",
+    "profileImage": "/profile_image.jpeg",
+    "socialLinks": [
+      {
+        "platform": "LinkedIn",
+        "url": "https://www.linkedin.com/in/cse-ariful/",
+        "icon": "fab fa-linkedin"
+      },
+      {
+        "platform": "GitHub",
+        "url": "https://github.com/cse-ariful/",
+        "icon": "fab fa-github"
+      },
+      {
+        "platform": "Facebook",
+        "url": "https://facebook.com/arifuljannatarif",
+        "icon": "fab fa-facebook"
+      }
+    ],
+    "quotes": [
+      "Code is poetry in motion",
+      "Building tomorrow's solutions today",
+      "Turning coffee into code",
+      "Debug like a detective, code like an artist",
+      "Making the complex simple",
+      "Creating digital experiences that matter",
+      "Innovation through iteration",
+      "Clean code, clear mind",
+      "Crafting pixel-perfect experiences",
+      "Mobile-first, user always"
+    ]
+  },
+  "experience": [
+    {
+      "title": "Senior Software Engineer",
+      "company": "Enosis Solutions",
+      "companyUrl": "https://www.enosisbd.com/",
+      "period": "Aug 2022 – Present",
+      "location": "Sylhet, Bangladesh",
+      "achievements": [
+        "Integrated VoIP/SIP technology in an iOS app with 99% call reliability",
+        "Analyzed project requirements and improved sprint efficiency by 25%",
+        "Led and mentored iOS and Android developers, improving productivity by 30%",
+        "Improved code quality and development efficiency by 35%",
+        "Managed tasks in JIRA, reducing project delivery time by 10%"
+      ]
+    },
+    {
+      "title": "Software Engineer",
+      "company": "Inverse.AI",
+      "companyUrl": "https://inverseai.com/",
+      "period": "Aug 2021 – Aug 2022",
+      "location": "Sylhet, Bangladesh",
+      "achievements": [
+        "Worked as a Mobile Development Lead with a team of 5 members",
+        "Led development and maintained mobile applications for Android",
+        "Owned project execution and planned sprints",
+        "Analyzed user data and integrated insights into feature development",
+        "Optimized software architecture and modularized features"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "degree": "Bachelor of Science in Computer Science & Engineering",
+      "institution": "Leading University",
+      "period": "2015 - 2019",
+      "location": "Sylhet, Bangladesh",
+      "achievements": [
+        "Relevant coursework: Data Structures, Algorithms, Software Engineering",
+        "Final year project: Smart Home Automation System"
+      ]
+    }
+  ],
+  "skills": {
+    "techIcons": [
+      { "icon": "fab fa-swift", "name": "Swift" },
+      { "icon": "fab fa-android", "name": "Android" },
+      { "icon": "fab fa-apple", "name": "iOS" },
+      { "icon": "devicon-kotlin-plain", "name": "Kotlin" },
+      { "icon": "fab fa-git-alt", "name": "Git" },
+      { "icon": "fab fa-github", "name": "GitHub" },
+      { "icon": "fab fa-bitbucket", "name": "Bitbucket" },
+      { "icon": "fas fa-sync-alt", "name": "CI/CD" },
+      { "icon": "fab fa-jira", "name": "Jira" },
+      { "icon": "fab fa-asana", "name": "Asana" }
+    ]
+  },
+  "contact": {
+    "email": {
+      "value": "cse.ariful@gmail.com",
+      "label": "Email"
+    },
+    "location": {
+      "value": "Sylhet, Bangladesh",
+      "label": "Location"
+    },
+    "socialLinks": [
+      {
+        "platform": "LinkedIn",
+        "url": "https://www.linkedin.com/in/cse-ariful/",
+        "icon": "fab fa-linkedin",
+        "label": "LinkedIn"
+      },
+      {
+        "platform": "GitHub",
+        "url": "https://github.com/cse-ariful/",
+        "icon": "fab fa-github",
+        "label": "GitHub"
+      },
+      {
+        "platform": "Facebook",
+        "url": "https://facebook.com/arifuljannatarif",
+        "icon": "fab fa-facebook",
+        "label": "Facebook"
+      }
+    ]
+  }
+} 
