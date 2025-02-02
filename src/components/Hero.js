@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled, { keyframes } from 'styled-components';
 import QuoteOverlay from './QuoteOverlay';
-import { sectionsData } from '../data/sections';
+import { usePortfolioData } from '../hooks/usePortfolioData';
 
 const fadeInUp = keyframes`
   from {
@@ -237,9 +237,22 @@ const QuoteText = styled.div`
   }
 `;
 
-const HeroAlt = () => {
-  const { name, title, description, profileImage, socialLinks, quotes } = sectionsData.hero;
+const Hero = () => {
+  const { data, loading } = usePortfolioData();
   const [currentQuote, setCurrentQuote] = useState(0);
+
+  useEffect(() => {
+    if (!data?.hero?.quotes) return;
+    
+    const interval = setInterval(() => {
+      setCurrentQuote(prev => (prev + 1) % data.hero.quotes.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [data?.hero?.quotes]);
+
+  if (loading || !data) return null;
+
+  const { name, title, description, profileImage, socialLinks, quotes } = data.hero;
 
   const quoteIcons = {
     "Code is poetry in motion": "fas fa-code",
@@ -253,13 +266,6 @@ const HeroAlt = () => {
     "Crafting pixel-perfect experiences": "fas fa-paint-brush",
     "Mobile-first, user always": "fas fa-users"
   };
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentQuote(prev => (prev + 1) % quotes.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, [quotes.length]);
 
   return (
     <HeroSection id="home">
@@ -316,4 +322,4 @@ const HeroAlt = () => {
   );
 };
 
-export default HeroAlt; 
+export default Hero; 

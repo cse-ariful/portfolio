@@ -10,7 +10,7 @@ import Skills from './components/Skills';
 import Contact from './components/Contact';
 import Education from './components/Education';
 import Certifications from './components/Certifications';
-import { sectionsData } from './data/sections';
+import { usePortfolioData } from './hooks/usePortfolioData';
 
 const AppContainer = styled.div`
   min-height: 100vh;
@@ -21,21 +21,26 @@ const Main = styled.main`
 `;
 
 const App = () => {
-  const { sectionTitles } = sectionsData;
+  const { data, loading } = usePortfolioData();
+  
+  if (loading) return <div>Loading...</div>;
+  if (!data) return <div>Error loading data</div>;
+  
+  const { sectionTitles } = data;
 
   return (
     <AppContainer className="App">
       <GlobalStyles />
       <Navbar />
       <Main>
-        {sectionTitles.hero.enabled && <Hero />}
-        {sectionTitles.experience.enabled && <Experience />}
-        {sectionTitles.education.enabled && <Education />}
-        {sectionTitles.certifications.enabled && <Certifications />}
-        {sectionTitles.skills.enabled && <Skills />}
-        {sectionTitles.sideProjects.enabled && <SideProjects />}
-        {sectionTitles.projects.enabled && <Projects />}
-        {sectionTitles.contact.enabled && <Contact />}
+        {sectionTitles?.hero?.enabled && <Hero />}
+        {sectionTitles?.experience?.enabled && <Experience />}
+        {sectionTitles?.education?.enabled && <Education />}
+        {sectionTitles?.certifications?.enabled && <Certifications />}
+        {sectionTitles?.skills?.enabled && <Skills />}
+        {sectionTitles?.sideProjects?.enabled && <SideProjects />}
+        {sectionTitles?.projects?.enabled && <Projects />}
+        {sectionTitles?.contact?.enabled && <Contact />}
       </Main>
     </AppContainer>
   );
