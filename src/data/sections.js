@@ -1,7 +1,7 @@
 export const sectionsData = {
   sectionTitles: {
     hero: { title: "Home", enabled: true },
-    experience: { title: "Professional Journey", enabled: true },
+    experience: { title: "Job Experiences", enabled: true },
     education: { title: "Education", enabled: true },
     certifications: { title: "Certifications", enabled: true },
     skills: { title: "Technical Expertise", enabled: true },
@@ -81,7 +81,6 @@ export const sectionsData = {
       period: "2015 - 2019",
       location: "Sylhet, Bangladesh",
       achievements: [
-        "CGPA: 3.92",
         "Relevant coursework: Data Structures, Algorithms, Software Engineering",
         "Final year project: Smart Home Automation System"
       ]
