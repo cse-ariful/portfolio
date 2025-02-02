@@ -2,14 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 import GlobalStyles from './styles/GlobalStyles';
 import Navbar from './components/Navbar';
-import ProjectsAlt2 from './components/ProjectsAlt2';
+import Projects from './components/Projects';
 import SideProjects from './components/SideProjects';
-import HeroAlt from './components/HeroAlt';
-import ExperienceAlt2 from './components/ExperienceAlt2';
-import SkillsAlt from './components/SkillsAlt';
-import ContactAlt from './components/ContactAlt';
-import EducationAlt from './components/EducationAlt';
-import CertificationsAlt from './components/CertificationsAlt';
+import Hero from './components/Hero';
+import Experience from './components/Experience';
+import Skills from './components/Skills';
+import Contact from './components/Contact';
+import Education from './components/Education';
+import Certifications from './components/Certifications';
 import { sectionsData } from './data/sections';
 
 const AppContainer = styled.div`
@@ -28,14 +28,14 @@ const App = () => {
       <GlobalStyles />
       <Navbar />
       <Main>
-        {sectionTitles.hero.enabled && <HeroAlt />}
-        {sectionTitles.experience.enabled && <ExperienceAlt2 />}
-        {sectionTitles.education.enabled && <EducationAlt />}
-        {sectionTitles.certifications.enabled && <CertificationsAlt />}
-        {sectionTitles.skills.enabled && <SkillsAlt />}
+        {sectionTitles.hero.enabled && <Hero />}
+        {sectionTitles.experience.enabled && <Experience />}
+        {sectionTitles.education.enabled && <Education />}
+        {sectionTitles.certifications.enabled && <Certifications />}
+        {sectionTitles.skills.enabled && <Skills />}
         {sectionTitles.sideProjects.enabled && <SideProjects />}
-        {sectionTitles.projects.enabled && <ProjectsAlt2 />}
-        {sectionTitles.contact.enabled && <ContactAlt />}
+        {sectionTitles.projects.enabled && <Projects />}
+        {sectionTitles.contact.enabled && <Contact />}
       </Main>
     </AppContainer>
   );
