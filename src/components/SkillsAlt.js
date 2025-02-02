@@ -1,6 +1,7 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { sectionsData } from '../data/sections';
 
 const fadeIn = keyframes`
   from {
@@ -147,26 +148,14 @@ const TechName = styled.span`
 
 const SkillsAlt = () => {
   const [techGridRef, techGridVisible] = useScrollAnimation();
-
-  const techIcons = [
-    { icon: 'fab fa-swift', name: 'Swift' },
-    { icon: 'fab fa-android', name: 'Android' },
-    { icon: 'fab fa-apple', name: 'iOS' },
-    { icon: 'devicon-kotlin-plain', name: 'Kotlin' },
-    { icon: 'fab fa-git-alt', name: 'Git' },
-    { icon: 'fab fa-github', name: 'GitHub' },
-    { icon: 'fab fa-bitbucket', name: 'Bitbucket' },
-    { icon: 'fas fa-sync-alt', name: 'CI/CD' },
-    { icon: 'fab fa-docker', name: 'Docker' },
-    { icon: 'fab fa-jira', name: 'Jira' },
-    { icon: 'fab fa-asana', name: 'Asana' }
-  ];
+  const { techIcons } = sectionsData.skills;
+  const { skills: skillsTitle } = sectionsData.sectionTitles;
 
   return (
     <SkillsSection id="skills">
       <GradientOverlay />
       <Container>
-        <Title>Technical Expertise</Title>
+        <Title>{skillsTitle?.title || "Technical Expertise"}</Title>
         <TechGrid ref={techGridRef}>
           {techIcons.map((tech, index) => (
             <TechItem 

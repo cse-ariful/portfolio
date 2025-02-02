@@ -1,6 +1,7 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { sectionsData } from '../data/sections';
 
 const fadeIn = keyframes`
   from {
@@ -204,58 +205,16 @@ const Achievement = styled.li`
 
 const ExperienceAlt2 = () => {
   const [containerRef, isVisible] = useScrollAnimation(0.1);
-
-  const experiences = [
-    {
-      title: "Senior Software Engineer",
-      company: "Enosis Solutions",
-      companyUrl: "https://www.enosisbd.com/",
-      period: "Aug 2022 – Present",
-      location: "Sylhet, Bangladesh",
-      achievements: [
-        "Integrated VoIP/SIP technology in an iOS app with 99% call reliability",
-        "Analyzed project requirements and improved sprint efficiency by 25%",
-        "Led and mentored iOS and Android developers, improving productivity by 30%",
-        "Improved code quality and development efficiency by 35%",
-        "Managed tasks in JIRA, reducing project delivery time by 10%"
-      ]
-    },
-    {
-      title: "Software Engineer",
-      company: "Inverse.AI",
-      companyUrl: "https://inverseai.com/",
-      period: "Aug 2021 – Aug 2022",
-      location: "Sylhet, Bangladesh",
-      achievements: [
-        "Worked as a Mobile Development Lead with a team of 5 members",
-        "Led development and maintained mobile applications for Android",
-        "Owned project execution and planned sprints",
-        "Analyzed user data and integrated insights into feature development",
-        "Optimized software architecture and modularized features"
-      ]
-    },
-    {
-      title: "Software Engineer",
-      company: "Layal Technology",
-      companyUrl: "https://www.withlayal.com/",
-      period: "Jan 2019 – Jul 2021",
-      location: "Sylhet, Bangladesh",
-      achievements: [
-        "Led planning and development using Flutter",
-        "Reduced MVP release time by 20%",
-        "Integrated in-app purchases improving purchase rate by 20%",
-        "Managed app publishing across multiple platforms"
-      ]
-    }
-  ];
+  const { experience } = sectionsData;
+  const { experience: experienceTitle } = sectionsData.sectionTitles;
 
   return (
     <ExperienceSection id="experience">
       <GradientOverlay />
       <Container>
-        <Title>Professional Journey</Title>
+        <Title>{experienceTitle?.title || "Professional Journey"}</Title>
         <Timeline ref={containerRef}>
-          {experiences.map((exp, index) => (
+          {experience.map((exp, index) => (
             <ExperienceItem 
               key={index}
               index={index}

@@ -1,18 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled, { keyframes } from 'styled-components';
 import QuoteOverlay from './QuoteOverlay';
-
-const gradientMove = keyframes`
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-`;
+import { sectionsData } from '../data/sections';
 
 const fadeInUp = keyframes`
   from {
@@ -25,6 +14,20 @@ const fadeInUp = keyframes`
   }
 `;
 
+const PatternBackground = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 25px 25px, rgba(255, 255, 255, 0.2) 2%, transparent 0%),
+    radial-gradient(circle at 75px 75px, rgba(255, 255, 255, 0.2) 2%, transparent 0%);
+  background-size: 100px 100px;
+  opacity: 0.3;
+  transition: opacity 0.3s ease;
+`;
+
 const HeroSection = styled.section`
   min-height: 100vh;
   background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
@@ -33,34 +36,10 @@ const HeroSection = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
-`;
 
-const GradientBackground = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(
-    45deg,
-    rgba(79, 70, 229, 0.1) 0%,
-    rgba(124, 58, 237, 0.1) 50%,
-    rgba(139, 92, 246, 0.1) 100%
-  );
-  background-size: 200% 200%;
-  animation: ${gradientMove} 15s ease infinite;
-`;
-
-const GridPattern = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-  background-size: 50px 50px;
-  opacity: 0.5;
+  &:hover ${PatternBackground} {
+    opacity: 1;
+  }
 `;
 
 const Content = styled.div`
@@ -188,46 +167,108 @@ const SocialLinks = styled.div`
   }
 `;
 
-const ImageSection = styled.div`
+const QuotesSection = styled.div`
   position: relative;
-  flex: 1;
+  width: 100%;
+  height: 400px;
   display: flex;
-  justify-content: center;
   align-items: center;
-
-  &:hover ${QuoteOverlay} {
-    opacity: 1;
-  }
+  justify-content: center;
+  overflow: hidden;
+  padding: 2rem;
 
   @media (max-width: 1024px) {
     display: none;
   }
 `;
 
-const ProfileImage = styled.img`
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 4px solid rgba(165, 180, 252, 0.3);
-  box-shadow: 0 0 30px rgba(124, 58, 237, 0.2);
+const Quote = styled.div`
+  color: #fff;
+  font-size: 1.5rem;
+  text-align: center;
+  font-style: italic;
+  line-height: 1.6;
+  max-width: 80%;
+  position: absolute;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+
+  &.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
+
+const QuoteIcon = styled.div`
+  font-size: 2rem;
+  color: #a5b4fc;
+  margin-bottom: 1rem;
+  opacity: 0.8;
+  
+  i {
+    filter: drop-shadow(0 0 15px rgba(165, 180, 252, 0.4));
+  }
+`;
+
+const QuoteText = styled.div`
+  position: relative;
+  
+  &::before, &::after {
+    content: '"';
+    font-size: 3rem;
+    color: rgba(165, 180, 252, 0.3);
+    position: absolute;
+    line-height: 1;
+  }
+  
+  &::before {
+    left: -2rem;
+    top: -1rem;
+  }
+  
+  &::after {
+    right: -2rem;
+    bottom: -2rem;
+  }
 `;
 
 const HeroAlt = () => {
+  const { name, title, description, profileImage, socialLinks, quotes } = sectionsData.hero;
+  const [currentQuote, setCurrentQuote] = useState(0);
+
+  const quoteIcons = {
+    "Code is poetry in motion": "fas fa-code",
+    "Building tomorrow's solutions today": "fas fa-rocket",
+    "Turning coffee into code": "fas fa-coffee",
+    "Debug like a detective, code like an artist": "fas fa-bug",
+    "Making the complex simple": "fas fa-sitemap",
+    "Creating digital experiences that matter": "fas fa-mobile-alt",
+    "Innovation through iteration": "fas fa-sync-alt",
+    "Clean code, clear mind": "fas fa-broom",
+    "Crafting pixel-perfect experiences": "fas fa-paint-brush",
+    "Mobile-first, user always": "fas fa-users"
+  };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentQuote(prev => (prev + 1) % quotes.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [quotes.length]);
+
   return (
     <HeroSection id="home">
-      <GradientBackground />
-      <GridPattern />
+      <PatternBackground />
       <Content>
         <TextContent>
-          <h1>Ariful Jannat Arif</h1>
-          <h2>Software Engineer (Android, iOS)</h2>
-          <p>
-            Software Engineer with 5+ years of specialized expertise in mobile application 
-            development across iOS, Android, and Flutter platforms. Strong technical 
-            leadership experience in architecting scalable solutions, mentoring teams, 
-            and driving stakeholder communications.
-          </p>
+          <h1>{name}</h1>
+          <h2>{title}</h2>
+          <p>{description}</p>
           <ButtonGroup>
             <Button 
               href="/Resume.pdf" 
@@ -243,36 +284,33 @@ const HeroAlt = () => {
             </Button>
           </ButtonGroup>
           <SocialLinks>
-            <a 
-              href="https://www.linkedin.com/in/cse-ariful/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-            >
-              <i className="fab fa-linkedin"></i>
-            </a>
-            <a 
-              href="https://github.com/cse-ariful/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-            >
-              <i className="fab fa-github"></i>
-            </a>
-            <a 
-              href="https://facebook.com/arifuljannatarif" 
-              target="_blank" 
-              rel="noopener noreferrer"
-            >
-              <i className="fab fa-facebook"></i>
-            </a>
+            {socialLinks.map((link, index) => (
+              <a 
+                key={index}
+                href={link.url} 
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
+                <i className={link.icon}></i>
+              </a>
+            ))}
           </SocialLinks>
         </TextContent>
-        <ImageSection>
-          <ProfileImage 
-            src={`${process.env.PUBLIC_URL}/profile_image.jpeg`}
-            alt="MA-ARIFUL JANNAT"
-          />
-          <QuoteOverlay />
-        </ImageSection>
+        <QuotesSection>
+          {quotes.map((quote, index) => (
+            <Quote 
+              key={index}
+              className={currentQuote === index ? 'active' : ''}
+            >
+              <QuoteIcon>
+                <i className={quoteIcons[quote] || 'fas fa-quote-right'}></i>
+              </QuoteIcon>
+              <QuoteText>
+                {quote}
+              </QuoteText>
+            </Quote>
+          ))}
+        </QuotesSection>
       </Content>
     </HeroSection>
   );

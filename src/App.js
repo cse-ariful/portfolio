@@ -17,6 +17,7 @@ import SkillsAlt from './components/SkillsAlt';
 import ContactAlt from './components/ContactAlt';
 import EducationAlt from './components/EducationAlt';
 import CertificationsAlt from './components/CertificationsAlt';
+import { sectionsData } from './data/sections';
 
 const AppContainer = styled.div`
   min-height: 100vh;
@@ -26,24 +27,25 @@ const Main = styled.main`
   width: 100%;
 `;
 
-function App() {
+const App = () => {
+  const { sectionTitles } = sectionsData;
+
   return (
     <AppContainer className="App">
       <GlobalStyles />
       <Navbar />
       <Main>
-         
-        <HeroAlt />
-        <ExperienceAlt2 />
-        <EducationAlt />
-        <CertificationsAlt />
-        <SkillsAlt />
-        <SideProjects />
-        <ProjectsAlt2 />
-        <ContactAlt />
+        {sectionTitles.hero.enabled && <HeroAlt />}
+        {sectionTitles.experience.enabled && <ExperienceAlt2 />}
+        {sectionTitles.education.enabled && <EducationAlt />}
+        {sectionTitles.certifications.enabled && <CertificationsAlt />}
+        {sectionTitles.skills.enabled && <SkillsAlt />}
+        {sectionTitles.sideProjects.enabled && <SideProjects />}
+        {sectionTitles.projects.enabled && <ProjectsAlt2 />}
+        {sectionTitles.contact.enabled && <ContactAlt />}
       </Main>
     </AppContainer>
   );
-}
+};
 
 export default App; 

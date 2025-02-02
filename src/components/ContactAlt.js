@@ -1,6 +1,7 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { sectionsData } from '../data/sections';
 
 const fadeIn = keyframes`
   from {
@@ -177,55 +178,44 @@ const SocialLink = styled.a`
 
 const ContactAlt = () => {
   const [containerRef, isVisible] = useScrollAnimation();
+  const { contact } = sectionsData;
+  const { contact: contactTitle } = sectionsData.sectionTitles;
 
   return (
     <ContactSection id="contact">
       <GradientOverlay />
       <Container>
-        <Title>Get In Touch</Title>
+        <Title>{contactTitle?.title || "Get In Touch"}</Title>
         <ContactGrid ref={containerRef} isVisible={isVisible}>
           <ContactCard>
             <ContactInfo>
-              <InfoItem href="mailto:cse.ariful@gmail.com">
+              <InfoItem href={`mailto:${contact.email.value}`}>
                 <i className="fas fa-envelope"></i>
                 <InfoText>
-                  <InfoLabel>Email</InfoLabel>
-                  <InfoValue>cse.ariful@gmail.com</InfoValue>
+                  <InfoLabel>{contact.email.label}</InfoLabel>
+                  <InfoValue>{contact.email.value}</InfoValue>
                 </InfoText>
               </InfoItem>
               <InfoItem href="#">
                 <i className="fas fa-map-marker-alt"></i>
                 <InfoText>
-                  <InfoLabel>Location</InfoLabel>
-                  <InfoValue>Sylhet, Bangladesh</InfoValue>
+                  <InfoLabel>{contact.location.label}</InfoLabel>
+                  <InfoValue>{contact.location.value}</InfoValue>
                 </InfoText>
               </InfoItem>
             </ContactInfo>
             <SocialLinks>
-              <SocialLink 
-                href="https://www.linkedin.com/in/cse-ariful/" 
-                target="_blank" 
-                rel="noopener noreferrer"
-              >
-                <i className="fab fa-linkedin"></i>
-                LinkedIn
-              </SocialLink>
-              <SocialLink 
-                href="https://github.com/cse-ariful/" 
-                target="_blank" 
-                rel="noopener noreferrer"
-              >
-                <i className="fab fa-github"></i>
-                GitHub
-              </SocialLink>
-              <SocialLink 
-                href="https://facebook.com/arifuljannatarif" 
-                target="_blank" 
-                rel="noopener noreferrer"
-              >
-                <i className="fab fa-facebook"></i>
-                Facebook
-              </SocialLink>
+              {contact.socialLinks.map((link, index) => (
+                <SocialLink
+                  key={index}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i className={link.icon}></i>
+                  {link.label}
+                </SocialLink>
+              ))}
             </SocialLinks>
           </ContactCard>
         </ContactGrid>
